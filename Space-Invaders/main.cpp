@@ -80,7 +80,7 @@ int main()
         }
 
         player.sprite.setPosition(player.getPosition());
-        player.sprite.setScale(1, 1);
+
         win.draw(player.sprite);
        
       
