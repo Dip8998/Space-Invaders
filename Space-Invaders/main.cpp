@@ -1,9 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include<iostream>
+#include "Header/GameService.h"
+
 using namespace std;
 using namespace sf;
 
-class Player {
+/*class Player {
 
 private:
     int health = 3;
@@ -44,11 +46,12 @@ public:
     }
     
 
-};
+};*/
+
 
 int main()
 {
-    RenderWindow win(VideoMode::getFullscreenModes()[0], "Fullscreen Window", Style::Fullscreen);
+   /*RenderWindow win(VideoMode::getFullscreenModes()[0], "Fullscreen Window", Style::Fullscreen);
     Player player;
 
     player.texture.loadFromFile("assets/textures/player_ship.png");
@@ -86,8 +89,16 @@ int main()
       
 
         win.display();
+    }*/ 
+
+    GameService gameService;
+
+    gameService.Ignite();
+
+    while (gameService.isRunning()) {
+        gameService.update();
+        gameService.render();
+
     }
-   
-  
     return 0;
 }
