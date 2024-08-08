@@ -27,13 +27,19 @@ public:
     void takeDamage() {
 
     }
-    void move() {
+    void move(float offsetX) {
+        position.x += offsetX;
 
+
+    }
+    int getMoveSpeed() {
+
+        return moveSpeed;
+    }
+    Vector2f getPosition() {
+        return position;
     }
     void shootBullets() {
-
-    }
-    void getPosition() {
 
     }
     
@@ -64,16 +70,16 @@ int main()
         win.setFramerateLimit(60);
 
 
-        if (Keyboard::isKeyPressed(Keyboard::Left)) {
-            player.move();
+        if (Keyboard::isKeyPressed(Keyboard::A)) {
+            player.move(-1.0f * player.getMoveSpeed());
 
         }
-        if (Keyboard::isKeyPressed(Keyboard::Right)) {
+        if (Keyboard::isKeyPressed(Keyboard::D)) {
 
-            player.move();
+            player.move(1.0f * player.getMoveSpeed());
         }
 
-        player.sprite.setPosition(650, 500);
+        player.sprite.setPosition(player.getPosition());
         player.sprite.setScale(1, 1);
         win.draw(player.sprite);
        
