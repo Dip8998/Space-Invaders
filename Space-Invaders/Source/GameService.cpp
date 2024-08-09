@@ -20,6 +20,9 @@ void GameService::initialize() {
 	initializeVariables();
 
 }
+void GameService::destroy() {
+
+}
 void GameService::initializeVariables()
 {
 	gameWindow = serviceLocator -> getGraphicService() -> getGameWindow(); //set game window (it was null before this)
