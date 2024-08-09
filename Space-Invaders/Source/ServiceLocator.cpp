@@ -2,33 +2,39 @@
 
 Servicelocator::Servicelocator() {
 
-	// calling servicelocator constructor
+	graphicService = nullptr;
+	createServices();
 }
 Servicelocator::~Servicelocator() {
 
-	// calling destructor
+	clearAllServices();
 }
 void Servicelocator::createServices() {
 
-	// calling createservices function
+	graphicService = new GraphicService();
 }
 void Servicelocator::clearAllServices() {
 
-	// calling clearallservice function
+	delete(graphicService);
+	graphicService = nullptr;
 }
 Servicelocator* Servicelocator::getInstance() {
 
-	// calling getinstance function
+	static Servicelocator instance;
+	return &instance;
 }
 void Servicelocator::initialize() {
 
-	// calling initialize function
+	graphicService->initialize();
 }
 void Servicelocator::update() {
 
-	// calling update function
+	graphicService->update();
 }
 void Servicelocator::render() {
 
-	// calling render function
+	graphicService->render();
+}
+GraphicService* Servicelocator::getGraphicService() {
+	return graphicService; 
 }

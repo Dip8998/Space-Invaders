@@ -91,13 +91,13 @@ int main()
         win.display();
     }*/ 
 
-    GameService gameService;
+    GameService* gameService = new GameService();
 
-    gameService.Ignite();
+    gameService -> ignite();
 
-    while (gameService.isRunning()) {
-        gameService.update();
-        gameService.render();
+    while (gameService -> isRunning()) {
+        gameService -> update();
+        gameService -> render();
 
     }
     return 0;
