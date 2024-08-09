@@ -1,14 +1,7 @@
 #include "../Header/GameService.h"
+#include "../Header/EventService.h"
 #include "../Header/ServiceLocator.h"
 
-void GameService::initialize() {
-
-
-}
-void GameService::destroy() {
-
-
-}
 GameService::GameService() { 
 	serviceLocator = nullptr;
 	gameWindow = nullptr;
@@ -32,6 +25,9 @@ void GameService::initializeVariables()
 	gameWindow = serviceLocator -> getGraphicService() -> getGameWindow(); //set game window (it was null before this)
 }
 void GameService::update() {
+
+	serviceLocator->getEventService()->processEvents();
+
 	serviceLocator->update();
 }
 void GameService::render() {
