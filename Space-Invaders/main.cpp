@@ -1,64 +1,104 @@
 #include <SFML/Graphics.hpp>
+#include<iostream>
+#include "Header/GameService.h"
+
+using namespace std;
 using namespace sf;
+
+/*class Player {
+
+private:
+    int health = 3;
+    Vector2f position = Vector2f(200, 100);
+    int moveSpeed = 5;
+    int playerScore = 0;
+
+
+public:
+    Texture texture;
+    Sprite sprite;
+
+    int getScore() {
+        return playerScore;
+    }
+
+    void setScore(int score) {
+        playerScore = score;
+    }
+
+    void takeDamage() {
+
+    }
+    void move(float offsetX) {
+        position.x += offsetX;
+
+
+    }
+    int getMoveSpeed() {
+
+        return moveSpeed;
+    }
+    Vector2f getPosition() {
+        return position;
+    }
+    void shootBullets() {
+
+    }
+    
+
+};*/
+
 
 int main()
 {
-  
-    
-    RenderWindow win(VideoMode::getFullscreenModes()[0],"Fullscren Window", Style::Fullscreen);
+   /*RenderWindow win(VideoMode::getFullscreenModes()[0], "Fullscreen Window", Style::Fullscreen);
+    Player player;
+
+    player.texture.loadFromFile("assets/textures/player_ship.png");
+
+    player.sprite.setTexture(player.texture);
+   
 
     while (win.isOpen()) {
         Event event;
         while (win.pollEvent(event)) {
 
-            if (event.type == Event::Closed)
+            if (event.type == Event::Closed) {
                 win.close();
+            }
+
         }
 
-        win.setFramerateLimit(60);
         win.clear(Color::Black);
+        win.setFramerateLimit(60);
 
-        Texture texture;
-        texture.loadFromFile("assets/textures/outscal_logo.png");
 
-        Sprite outscal_sprite;
-        outscal_sprite.setTexture(texture);
+        if (Keyboard::isKeyPressed(Keyboard::A)) {
+            player.move(-1.0f * player.getMoveSpeed());
 
-        outscal_sprite.setPosition(650, 100);
-        
-        outscal_sprite.setScale(1, 1);
+        }
+        if (Keyboard::isKeyPressed(Keyboard::D)) {
 
-        win.draw(outscal_sprite);
+            player.move(1.0f * player.getMoveSpeed());
+        }
 
-        Font font;
-        font.loadFromFile("assets/fonts/OpenSans.ttf");
+        player.sprite.setPosition(player.getPosition());
 
-        Text text("Hello SFML!", font, 120);
-        text.setPosition(650, 300);
-        text.setFillColor(Color::Yellow);
-        win.draw(text);
-
-        CircleShape circle(50);
-        circle.setFillColor(Color::Red);
-        circle.setPosition(win.getSize().x / 2 - circle.getRadius(), win.getSize().y / 2 - circle.getRadius());
-        win.draw(circle);
-
-        RectangleShape rs(Vector2f(200,100));
-        rs.setFillColor(Color::Green);
-        rs.setPosition(Vector2f(500, 500));
-        win.draw(rs);
-
-        ConvexShape triangle;
-        triangle.setPointCount(3);
-        triangle.setPoint(0, Vector2f(400, 300));
-        triangle.setPoint(1, Vector2f(300, 500));
-        triangle.setPoint(2, Vector2f(500, 500));
-        triangle.setFillColor(Color::Blue);
-        triangle.setPosition(Vector2f(900, 200));
-        win.draw(triangle);
+        win.draw(player.sprite);
+       
+      
 
         win.display();
-    }
+    }*/ 
 
+    GameService* gameService = new GameService();
+
+    gameService -> ignite();
+
+    while (gameService -> isRunning()) {
+        gameService -> update();
+        gameService -> render();
+
+    }
     return 0;
 }
