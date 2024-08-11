@@ -47,3 +47,9 @@ bool EventService::isGameWindowOpen() {
 bool EventService::gameWindowWasClosed() { 
 	return event.type == Event::Closed; 
 }
+bool EventService::pressedLeftKey() {
+	return event.key.code = Keyboard::Left;
+}
+bool EventService::pressedRightKey() {
+	return event.key.code = Keyboard::Right;
+}

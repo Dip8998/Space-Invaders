@@ -1,12 +1,14 @@
 #pragma once
 #include "../Header/GraphicService.h"
 #include "../Header/EventService.h"
+#include "../Header/PlayerService.h"
 class Servicelocator {
 
 private:
 
 	GraphicService* graphicService;
 	EventService* eventService;
+	PlayerService* playerService;
 
 	Servicelocator();
 	~Servicelocator();
@@ -23,6 +25,7 @@ public:
 
 	GraphicService* getGraphicService();
 	EventService* getEventService();
+	PlayerService* getPlayerService();
 
 
 };
