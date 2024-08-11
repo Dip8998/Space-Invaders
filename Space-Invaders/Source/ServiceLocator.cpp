@@ -1,10 +1,12 @@
 #include "../Header/ServiceLocator.h"
 
+
 Servicelocator::Servicelocator() {
 
 	graphicService = nullptr;
 	eventService = nullptr;
 	playerService = nullptr;
+	timeService = nullptr;
 	createServices();
 }
 Servicelocator::~Servicelocator() {
@@ -16,15 +18,19 @@ void Servicelocator::createServices() {
 	graphicService = new GraphicService();
 	eventService = new EventService();
 	playerService = new PlayerService();
+	timeService = new TimeService();
 }
 void Servicelocator::clearAllServices() {
 
 	delete(graphicService);
 	delete(eventService);
 	delete(playerService);
+	delete(timeService);
 	graphicService = nullptr;
 	eventService = nullptr;
 	playerService = nullptr;
+	timeService = nullptr;
+	
 }
 Servicelocator* Servicelocator::getInstance() {
 
@@ -36,12 +42,14 @@ void Servicelocator::initialize() {
 	graphicService->initialize();
 	eventService->initialize();
 	playerService->initialize();
+	timeService->initialize();
 }
 void Servicelocator::update() {
 
 	graphicService->update();
 	eventService->update();
 	playerService->update();
+	timeService->update();
 }
 void Servicelocator::render() {
 
@@ -57,4 +65,7 @@ EventService* Servicelocator::getEventService() {
 }
 PlayerService* Servicelocator::getPlayerService() {
 	return playerService;
+}
+TimeService* Servicelocator::getTimeService() {
+	return timeService;
 }

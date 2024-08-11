@@ -11,6 +11,7 @@ private:
 	const string gameWindowTitle = "Space Shooter";
 	const int gameWindowWidth = 800;
 	const int gameWindowHeight = 600;
+	const int frameRate = 60;
 	const Color windowColor = Color::Black;
 	VideoMode* videoMode;
 	RenderWindow* gameWindow;

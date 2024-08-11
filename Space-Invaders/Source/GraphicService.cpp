@@ -14,6 +14,7 @@ GraphicService::~GraphicService() {
 void GraphicService::initialize() {
 
 	gameWindow = createGameWindow(); // Create new Game window to gameWindow pointer
+	gameWindow->setFramerateLimit(frameRate);
 }
 RenderWindow* GraphicService::createGameWindow() {
 	setVideoMode(); // Set the videomode to Window

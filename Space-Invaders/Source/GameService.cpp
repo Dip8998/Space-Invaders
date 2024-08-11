@@ -30,7 +30,7 @@ void GameService::initializeVariables()
 void GameService::update() {
 
 	serviceLocator->getEventService()->processEvents();
-
+	
 	serviceLocator->update();
 }
 void GameService::render() {

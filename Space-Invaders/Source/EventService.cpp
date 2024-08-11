@@ -1,10 +1,10 @@
 #include "../Header/EventService.h"
 #include "../Header/GameService.h"
 #include "../Header/GraphicService.h"
-
+#include<iostream>
 using namespace sf;
 
-EventService::EventService(){
+EventService::EventService() {
 	gameWindow = nullptr;
 }
 EventService::~EventService() = default;
@@ -48,8 +48,10 @@ bool EventService::gameWindowWasClosed() {
 	return event.type == Event::Closed; 
 }
 bool EventService::pressedLeftKey() {
-	return event.key.code = Keyboard::Left;
+	return event.key.code == Keyboard::A;
+	std::cout << "A key pressed" << std::endl;
 }
 bool EventService::pressedRightKey() {
-	return event.key.code = Keyboard::Right;
+	return event.key.code == Keyboard::D;
+	std::cout << "A key pressed" << std::endl;
 }

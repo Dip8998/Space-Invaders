@@ -6,8 +6,8 @@ class PlayerService {
 
 private:
     int health = 3;
-    Vector2f position = Vector2f(200, 100);
-    int moveSpeed = 5;
+    Vector2f position = Vector2f(350, 500);
+    float moveSpeed = 350.0f;
     int playerScore = 0;
 
     const String playerTexturePath = "assets/textures/player_ship.png";
@@ -28,8 +28,10 @@ public:
     void update();
     void render();
 
+    void moveLeft();
+    void moveRight();
     void move(float offsetX);
-    int getMoveSpeed();
+    float getMoveSpeed();
     Vector2f getPlayerPosition();
 
 
