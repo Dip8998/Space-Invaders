@@ -1,28 +1,39 @@
 #include "../Header/TimeService.h"
-using namespace std;
 
-void TimeService::initialize() {
-
-	previous_time = chrono::steady_clock::now();
+void TimeService::initialize()
+{
+	previous_time = std::chrono::steady_clock::now();
 	deltaTime = 0;
 }
-void TimeService::update() {
-	updateDeltaTime();
 
+void TimeService::update()
+{
+	updateDeltaTime();
 }
-float TimeService::getDeltaTime() {
+
+float TimeService::getDeltaTime()
+{
 	return deltaTime;
 }
-void TimeService::updateDeltaTime() {
+
+void TimeService::updateDeltaTime()
+{
 	deltaTime = calculateDeltaTime();
 	updatePreviousTime();
 }
-float TimeService::calculateDeltaTime() {
-	int delta = chrono::duration_cast<chrono::microseconds>(chrono::steady_clock::now() - previous_time).count();
 
+float TimeService::calculateDeltaTime()
+{
+	
+	int delta = std::chrono::duration_cast<std::chrono::microseconds>(
+		std::chrono::steady_clock::now() - previous_time).count();
+
+	
 	return static_cast<float>(delta) / static_cast<float>(1000000);
-
 }
-void TimeService::updatePreviousTime() {
-	previous_time = chrono::steady_clock::now();
+
+// Update previous_time to the current time
+void TimeService::updatePreviousTime()
+{
+	previous_time = std::chrono::steady_clock::now();
 }

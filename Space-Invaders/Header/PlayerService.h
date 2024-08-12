@@ -17,7 +17,7 @@ private:
 
     RenderWindow* gameWindow;
     void initializePlayerSprite();
-    void processPlayerInput();
+    
 
 public:
 
@@ -30,7 +30,8 @@ public:
 
     void moveLeft();
     void moveRight();
-    void move(float offsetX);
+    
+    void processPlayerInput();
     float getMoveSpeed();
     Vector2f getPlayerPosition();
 

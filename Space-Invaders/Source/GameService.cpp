@@ -28,9 +28,8 @@ void GameService::initializeVariables()
 	gameWindow = serviceLocator -> getGraphicService() -> getGameWindow(); //set game window (it was null before this)
 }
 void GameService::update() {
-
-	serviceLocator->getEventService()->processEvents();
 	
+	serviceLocator->getEventService()->processEvents();
 	serviceLocator->update();
 }
 void GameService::render() {
