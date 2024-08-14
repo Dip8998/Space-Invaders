@@ -3,69 +3,74 @@
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Player/PlayerController.h"
 
+namespace Player {
 
-PlayerService::PlayerService() {
+	using namespace Global;
+	using namespace Event;
 
-	gameWindow = nullptr;
-}
-PlayerService::~PlayerService() = default;
+	PlayerService::PlayerService() {
 
-void PlayerService::initialize() {
+		gameWindow = nullptr;
+	}
+	PlayerService::~PlayerService() = default;
 
-	gameWindow = Servicelocator::getInstance() -> getGraphicService() -> getGameWindow();
-	initializePlayerSprite();
-}
-void PlayerService::update() {
-	
-	processPlayerInput();
-	playerSprite.setPosition(getPlayerPosition());
-	
-}
-void PlayerService::render() {
+	void PlayerService::initialize() {
 
-	gameWindow->draw(playerSprite);
-}
-void PlayerService::processPlayerInput() {
+		gameWindow = Servicelocator::getInstance()->getGraphicService()->getGameWindow();
+		initializePlayerSprite();
+	}
+	void PlayerService::update() {
 
-	EventService* eventService = Servicelocator::getInstance()->getEventService();
-	
-	if (eventService->isKeyboardEvent()) {
-		
-		if (eventService-> pressedLeftKey()) {
-		
-			moveLeft();
-		}
-		if(eventService->pressedRightKey()) {
-			
-			moveRight();
+		processPlayerInput();
+		playerSprite.setPosition(getPlayerPosition());
+
+	}
+	void PlayerService::render() {
+
+		gameWindow->draw(playerSprite);
+	}
+	void PlayerService::processPlayerInput() {
+
+		EventService* eventService = Servicelocator::getInstance()->getEventService();
+
+		if (eventService->isKeyboardEvent()) {
+
+			if (eventService->pressedLeftKey()) {
+
+				moveLeft();
+			}
+			if (eventService->pressedRightKey()) {
+
+				moveRight();
+			}
 		}
 	}
-}
-void PlayerService::initializePlayerSprite() {
+	void PlayerService::initializePlayerSprite() {
 
-	if (playerTexture.loadFromFile(playerTexturePath)) {
-		
-		playerSprite.setTexture(playerTexture);
-		
+		if (playerTexture.loadFromFile(playerTexturePath)) {
+
+			playerSprite.setTexture(playerTexture);
+
+		}
+
 	}
-	
-}
-void PlayerService::moveLeft() {
+	void PlayerService::moveLeft() {
 
-	position.x = position.x - moveSpeed * Servicelocator::getInstance()->getTimeService()->getDeltaTime();
+		position.x = position.x - moveSpeed * Servicelocator::getInstance()->getTimeService()->getDeltaTime();
 
-}
-void PlayerService::moveRight() {
+	}
+	void PlayerService::moveRight() {
 
-	position.x = position.x + moveSpeed * Servicelocator::getInstance()->getTimeService()->getDeltaTime();
-}
+		position.x = position.x + moveSpeed * Servicelocator::getInstance()->getTimeService()->getDeltaTime();
+	}
 
-Vector2f PlayerService::getPlayerPosition() {
+	Vector2f PlayerService::getPlayerPosition() {
 
-	
-	return position;
-}
-float PlayerService::getMoveSpeed() {
 
-	return moveSpeed;
+		return position;
+	}
+	float PlayerService::getMoveSpeed() {
+
+		return moveSpeed;
+	}
 }

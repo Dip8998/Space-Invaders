@@ -1,8 +1,7 @@
 #include "../../Header/Player/PlayerView.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Player/PlayerController.h"
-
-
+using namespace Global;
 
 
 PlayerView::PlayerView(){}

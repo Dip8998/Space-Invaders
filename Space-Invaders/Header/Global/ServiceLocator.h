@@ -4,7 +4,14 @@
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Time/TimeService.h"
 
-class Servicelocator {
+namespace Global {
+
+	using namespace Event;
+	using namespace Graphic;
+	using namespace Player;
+	using namespace Time;
+
+	class Servicelocator {
 
 private:
 
@@ -33,3 +40,5 @@ public:
 
 
 };
+
+}

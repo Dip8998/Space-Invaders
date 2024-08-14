@@ -3,23 +3,27 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
-class GameService {
+namespace Main {
 
-private:
+	class GameService {
 
-	Servicelocator* serviceLocator;
-	RenderWindow* gameWindow;
+	private:
 
-	void initialize();
-	void destroy();
-	void initializeVariables();
+		Global::Servicelocator* serviceLocator;
+		RenderWindow* gameWindow;
 
-public:
-	GameService();
-	~GameService();
-	void ignite();
-	void update();
-	void render();
-	bool isRunning();
+		void initialize();
+		void destroy();
+		void initializeVariables();
 
-};
+	public:
+		GameService();
+		~GameService();
+		void ignite();
+		void update();
+		void render();
+		bool isRunning();
+
+	};
+}
+

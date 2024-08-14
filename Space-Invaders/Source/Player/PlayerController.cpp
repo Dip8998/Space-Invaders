@@ -6,6 +6,8 @@
 #include<algorithm>
 
 using namespace sf;
+using namespace Global;
+
 
 PlayerController::PlayerController(){
 	playerView = new PlayerView();

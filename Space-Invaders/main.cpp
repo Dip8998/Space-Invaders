@@ -4,6 +4,7 @@
 
 using namespace std;
 using namespace sf;
+using namespace Main;
 
 /*class Player {
 
