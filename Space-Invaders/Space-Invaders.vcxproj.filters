@@ -30,7 +30,7 @@
     <ClCompile Include="Source\EventService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\PlayerService.cpp">
+    <ClCompile Include="Source\Player\PlayerService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\TimeService.cpp">
@@ -47,22 +47,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header\GameService.h">
+    <ClInclude Include="Header\Main\GameService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\ServiceLocator.h">
+    <ClInclude Include="Header\Global\ServiceLocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\GraphicService.h">
+    <ClInclude Include="Header\Graphic\GraphicService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\EventService.h">
+    <ClInclude Include="Header\Event\EventService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\PlayerService.h">
+    <ClInclude Include="Header\Player\PlayerService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\TimeService.h">
+    <ClInclude Include="Header\Time\TimeService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Player\PlayerModel.h">
