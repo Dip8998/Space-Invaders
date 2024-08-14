@@ -1,6 +1,7 @@
-#include "../Header/Event/EventService.h"
-#include "../Header/Main/GameService.h"
-#include "../Header/Graphic/GraphicService.h"
+#include "../../Header/Event/EventService.h"
+#include "../../Header/Main/GameService.h"
+#include "../../Header/Graphic/GraphicService.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 namespace Event {
 	
