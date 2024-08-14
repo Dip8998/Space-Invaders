@@ -1,42 +1,39 @@
-#include "../Header/GraphicService.h"
+#include "../Header/Graphic/GraphicService.h"
 
-// Initialize Constructor 
-GraphicService::GraphicService() {
+namespace Graphic {
+	// Initialize Constructor 
+	GraphicService::GraphicService() {
 
-	gameWindow = nullptr; // GameWindow to pointer
-	videoMode = nullptr;  // VideoMode to pointer
+		gameWindow = nullptr; 	videoMode = nullptr;
+	}
+	GraphicService::~GraphicService() {
+		onDestroy();
+	}
+	void GraphicService::initialize() {
 
-}
-// Initialize Destructor
-GraphicService::~GraphicService() {
-	onDestroy(); // Used to CleanUp Resources
-}
-void GraphicService::initialize() {
+		gameWindow = createGameWindow(); 	gameWindow->setFramerateLimit(frameRate);
+	}
+	RenderWindow* GraphicService::createGameWindow() {
+		setVideoMode();
+		return new RenderWindow(*videoMode, gameWindowTitle);
+	}
+	void GraphicService::setVideoMode() {
+		videoMode = new VideoMode(gameWindowWidth, gameWindowHeight, VideoMode::getDesktopMode().bitsPerPixel);
+	}
+	void GraphicService::onDestroy() {
+		delete(videoMode); 	delete(gameWindow);
+	}
+	void GraphicService::update() {}
 
-	gameWindow = createGameWindow(); // Create new Game window to gameWindow pointer
-}
-RenderWindow* GraphicService::createGameWindow() {
-	setVideoMode(); // Set the videomode to Window
+	void GraphicService::render() {}
 
-	return new RenderWindow(*videoMode, gameWindowTitle); // Create and return new game window
-}
-void GraphicService::setVideoMode() {
-	videoMode = new VideoMode(gameWindowWidth, gameWindowHeight, VideoMode::getDesktopMode().bitsPerPixel); // Allocates and set video mode
-}
-void GraphicService::onDestroy() {
-	delete(videoMode); // delete videomode object
-	delete(gameWindow); // delete gamewindow object
-}
-void GraphicService::update(){}
-
-void GraphicService::render(){}
-
-bool GraphicService::isGameWindowOpen() {
-	return gameWindow -> isOpen(); // Return the open status for game window
-}
-RenderWindow* GraphicService::getGameWindow() {
-	return gameWindow; // Return game window
-}
-Color GraphicService::getWindowColor() {
-	return windowColor; // Return window color
+	bool GraphicService::isGameWindowOpen() {
+		return gameWindow->isOpen();
+	}
+	RenderWindow* GraphicService::getGameWindow() {
+		return gameWindow;
+	}
+	Color GraphicService::getWindowColor() {
+		return windowColor;
+	}
 }

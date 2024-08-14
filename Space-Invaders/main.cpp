@@ -1,9 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include<iostream>
-#include "Header/GameService.h"
+#include "Header/Main/GameService.h"
 
 using namespace std;
 using namespace sf;
+using namespace Main;
 
 /*class Player {
 
