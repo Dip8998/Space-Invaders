@@ -11,6 +11,17 @@ namespace Main {
 	GameService::~GameService() {
 		destroy();
 	}
+
+	GameState GameService::currentState = GameState::BOOT;
+
+	void GameService::setGameState(GameState newState) {
+		currentState = newState;
+	}
+
+	GameState GameService::getGameState() {
+		return currentState;
+	}
+
 	void GameService::ignite() {
 		serviceLocator = Servicelocator::getInstance();
 		initialize();
